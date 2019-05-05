@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-6 text-center align-middle">
+        <h3 class="align-middle" >Burgers Available</h3>
+
+            {{#each burgers}}
+                {{#unless this.devoured}}
+                    <div class="align-middle blackBorder">
+                        <div>
+                            <h5>{{this.burger_name}}</h5>
+                            <form action="update/{{this.id}}" method="POST">
+                                <button type="submit">Eat!</button>
+                            </form>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/each}}
+    </div>
+
+    <div class="col-6 text-center ">
+    <h3>Burgers Eaten</h3>
+            {{#each burgers}}
+                {{#if this.devoured}}
+                    <div class="blackBorder">
+                        <div>
+                            <h5>{{this.burger_name}}</h5>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center">
+        <h3>Add New Burger</h3>
+        <form action="/create" method="POST">
+            <div>
+                <input type="text" name="burger_name" placeholder="Add new burger here">
+            </div>
+            <button type="submit">Add The Burger</button>
+        </form>
+    </div>
+</div>
