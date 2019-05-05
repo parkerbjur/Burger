@@ -9,16 +9,10 @@ require('dotenv').config()
 if (process.env.CLEARDB_DATABASE_URL) {
     console.log ("------")
     console.log (process.env)
-    connection = mysql.createConnection({
-        host: process.env.host,
-        port: 3306,
-        user: "b2c8985c6e27a5",
-        password: process.env.password,
-        database: "heroku_d807133fc14176e"
-        });
+    let connection = mysql.createConnection("mysql://b5dyae5tprc2m3cy:xu0w01o205cfu5bq@alv4v3hlsipxnujn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/yejc48k8euy0jecs");
    // mysql://b2c8985c6e27a5:ec1799e7@us-cdbr-iron-east-02.cleardb.net/heroku_d807133fc14176e?reconnect=true
 } else {
-    connection = mysql.createConnection({
+    let connection = mysql.createConnection({
         host: 'localhost',
         port: 3306,
         user: "webuser",
